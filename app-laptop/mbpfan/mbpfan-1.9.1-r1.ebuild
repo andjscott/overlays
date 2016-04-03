@@ -26,4 +26,6 @@ src_install() {
 	emake || die "Make failed!"
 	dosbin bin/mbpfan
 	newinitd mbpfan.init.gentoo mbpfan
+	insinto /etc/
+	doins mbpfan.conf
 }
