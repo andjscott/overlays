@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit eutils
+inherit eutils systemd
 
 DESCRIPTION="Fan-Control-Daemon is a daemon that uses input from coretemp module and sets the fan speed using the applesmc module."
 HOMEPAGE="https://github.com/dgraziotin/mbpfan"
@@ -13,9 +13,9 @@ SRC_URI="https://github.com/dgraziotin/mbpfan/archive/v${PV}.tar.gz"
 LICENSE=""
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
+IUSE="-systemd"
 
-DEPEND=""
+DEPEND="systemd? ( sys-apps/systemd )"
 RDEPEND="${DEPEND}"
 
 src_prepare() {
@@ -25,7 +25,12 @@ src_prepare() {
 src_install() {
 	emake || die "Make failed!"
 	dosbin bin/mbpfan
-	newinitd mbpfan.init.gentoo mbpfan
+	if use systemd ; then
+		ewarn "systemd service file installation is untested"
+		systemd_dounit mbpfan.service
+	else
+		newinitd mbpfan.init.gentoo mbpfan
+	fi
 	insinto /etc/
 	doins mbpfan.conf
 }
