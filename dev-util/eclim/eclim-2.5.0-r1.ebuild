@@ -18,13 +18,13 @@ IUSE="cdt +java php ruby doc"
 
 COMMON_DEPEND=">=dev-util/eclipse-sdk-bin-4.5"
 DEPEND="${COMMON_DEPEND}
->=virtual/jdk-1.5
+	>=virtual/jdk-1.5
 doc? ( dev-python/sphinx )"
 RDEPEND="${COMMON_DEPEND}
-app-editors/vim
->=virtual/jre-1.5
-dev-java/nailgun"
-RDEPEND="${DEPEND}"
+	|| ( app-editors/vim app-editors/gvim )
+	dev-util/eclipse-sdk-bin
+	>=virtual/jre-1.5
+	dev-java/nailgun"
 
 S=${WORKDIR}/${MY_P}
 eclipse_home="/opt/eclipse-sdk-bin-4.5/"
