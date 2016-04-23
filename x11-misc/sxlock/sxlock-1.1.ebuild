@@ -6,7 +6,7 @@ EAPI=5
 
 DESCRIPTION="Simple screen locker utility for X, fork of sflock, which is based on slock. Main difference is that sxlock uses PAM authentication, so no suid is needed."
 HOMEPAGE="https://github.com/lahwaacz/sxlock"
-SRC_URI="https://github.com/lahwaacz/sxlock/archive/v${PV}.tar.gz"
+SRC_URI="https://github.com/lahwaacz/sxlock/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE=""
 SLOT="0"

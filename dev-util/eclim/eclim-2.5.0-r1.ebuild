@@ -9,7 +9,7 @@ MY_P=${P/-/_}
 
 DESCRIPTION="Expose eclipse features inside of vim."
 HOMEPAGE="https://github.com/ervandew/eclim"
-SRC_URI="https://github.com/ervandew/eclim/releases/download/2.5.0/eclim_${PV}.tar.gz"
+SRC_URI="https://github.com/ervandew/eclim/releases/download/2.5.0/eclim_${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"

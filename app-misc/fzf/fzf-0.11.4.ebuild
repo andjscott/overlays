@@ -6,7 +6,7 @@ EAPI=5
 
 DESCRIPTION="A command-line fuzzy finder written in Go"
 HOMEPAGE="https://github.com/junegunn/fzf"
-SRC_URI="https://github.com/junegunn/fzf/archive/${PV}.tar.gz"
+SRC_URI="https://github.com/junegunn/fzf/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"

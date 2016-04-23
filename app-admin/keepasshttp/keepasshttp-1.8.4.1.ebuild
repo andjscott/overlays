@@ -6,7 +6,7 @@ EAPI=5
 
 DESCRIPTION="KeePass plugin to expose password entries securely (256bit AES/CBC) over HTTP"
 HOMEPAGE="https://github.com/pfn/keepasshttp"
-SRC_URI="https://github.com/pfn/keepasshttp/archive/${PV}.tar.gz"
+SRC_URI="https://github.com/pfn/keepasshttp/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"

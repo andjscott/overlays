@@ -13,8 +13,7 @@ if [[ $PV = *9999* ]]; then
 	inherit git-r3
 	KEYWORDS=""
 else
-	A="${P}.tar.gz"
-	SRC_URI="https://github.com/phildawes/racer/archive/v${PV}.tar.gz -> ${A}"
+	SRC_URI="https://github.com/phildawes/racer/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
 LICENSE="MIT"

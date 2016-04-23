@@ -8,7 +8,7 @@ inherit eutils systemd
 
 DESCRIPTION="Fan-Control-Daemon is a daemon that uses input from coretemp module and sets the fan speed using the applesmc module."
 HOMEPAGE="https://github.com/dgraziotin/mbpfan"
-SRC_URI="https://github.com/dgraziotin/mbpfan/archive/v${PV}.tar.gz"
+SRC_URI="https://github.com/dgraziotin/mbpfan/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE=""
 SLOT="0"
