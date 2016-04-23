@@ -6,7 +6,7 @@ EAPI=5
 
 DESCRIPTION="A command-line fuzzy finder written in Go"
 HOMEPAGE="https://github.com/junegunn/fzf"
-SRC_URI="https://github.com/junegunn/fzf/archive/${PV}.tar.gz"
+SRC_URI="https://github.com/junegunn/fzf/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -21,7 +21,7 @@ src_install() {
 	dobin fzf
 
 	if use bash; then
-		insinto /usr/share/bash-completion/completions/
+		insinto /etc/bash_completion.d/
 		newins shell/completion.bash fzf
 		insinto /etc/profile.d/
 		newins shell/key-bindings.bash fzf.bash
