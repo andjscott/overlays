@@ -19,8 +19,11 @@ RDEPEND="${DEPEND}"
 
 src_compile() {
 	if use go; then
+		export GOPATH="${S}/gopath"
 		cd src
-		emake install
+		go get
+		cd fzf
+		go build -a -o "${S}/bin/fzf"
 	fi
 }
 
