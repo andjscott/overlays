@@ -11,14 +11,28 @@ SRC_URI="https://github.com/junegunn/fzf/archive/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="bash zsh fish tmux vim doc"
+IUSE="+go bash zsh fish tmux vim doc"
 
-DEPEND="dev-lang/go dev-lang/ruby"
+DEPEND="go? ( dev-lang/go )
+        !go? ( dev-lang/ruby )"
 RDEPEND="${DEPEND}"
 
+src_compile() {
+	if use go; then
+		cd src
+		emake install
+	fi
+}
+
 src_install() {
+	if use go; then
+		dobin bin/fzf
+	else 
+		ewarn "The ruby version of fzf is no longer maintained."
+		ewarn "Consider enabling the 'go' USE flag to install the up-to-date version." 
+		dobin fzf
+	fi
 	doman man/man1/fzf.1
-	dobin fzf
 
 	if use bash; then
 		insinto /etc/bash_completion.d/
@@ -44,6 +58,6 @@ src_install() {
 		doins plugin/fzf.vim
 	fi
 	if use doc; then
-		dodoc README.md 
+		dodoc README.md
 	fi
 }
