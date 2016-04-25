@@ -3,6 +3,7 @@
 # $Id$
 
 EAPI=5
+inherit eutils
 
 DESCRIPTION="A command-line fuzzy finder written in Go"
 HOMEPAGE="https://github.com/junegunn/fzf"
@@ -17,13 +18,15 @@ DEPEND="go? ( dev-lang/go )
         !go? ( dev-lang/ruby )"
 RDEPEND="${DEPEND}"
 
+src_prepare() {
+	cd src
+	epatch "${FILESDIR}/makefile_allow_32-bit.patch"
+}
+
 src_compile() {
 	if use go; then
-		export GOPATH="${S}/gopath"
 		cd src
-		go get
-		cd fzf
-		go build -a -o "${S}/bin/fzf"
+		emake install
 	fi
 }
 
